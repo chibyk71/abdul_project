@@ -47,3 +47,19 @@ export const concatFiles = [
     outputFile: 'public/build/assets/vendor/userauth-init.js',
   }
 ];
+
+export const publicFiles = [
+  {
+    src: 'Modules/UserAuth/resources/vendor/assets/images',
+    dest: 'vendor',
+    rename: 'img'
+  },
+  {
+    src: 'Modules/UserAuth/resources/vendor/assets/fonts',
+    dest: 'vendor'
+  },
+  {
+    src: 'Modules/UserAuth/resources/vendor/assets/js/tinymce',
+    dest: 'vendor/js'
+  },
+];

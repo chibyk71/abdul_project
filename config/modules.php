@@ -41,6 +41,7 @@ return [
       'assets/js/svelte-files/index' => 'resources/js/Pages/Index.svelte',
       'assets/js/svelte-files/layout' => 'resources/js/Pages/Layouts/PageLayout.svelte',
       'assets/sass/app' => 'resources/sass/app.scss',
+      'assets/vendor/images/sample-image' => 'resources/vendor/images/sample.jpg',
       'vite' => 'vite.config.js',
       'package' => 'package.json',
     ],

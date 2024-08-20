@@ -47,3 +47,19 @@ export const concatFiles = [
     outputFile: 'public/build/assets/vendor/$LOWER_NAME$-init.js',
   }
 ];
+
+export const publicFiles = [
+  {
+    src: 'Modules/$STUDLY_NAME$/resources/vendor/assets/images',
+    dest: 'vendor',
+    rename: 'img'
+  },
+  {
+    src: 'Modules/$STUDLY_NAME$/resources/vendor/assets/fonts',
+    dest: 'vendor'
+  },
+  {
+    src: 'Modules/$STUDLY_NAME$/resources/vendor/assets/js/tinymce',
+    dest: 'vendor/js'
+  },
+];

@@ -47,3 +47,19 @@ export const concatFiles = [
     outputFile: 'public/build/assets/vendor/appuser-init.js',
   }
 ];
+
+export const publicFiles = [
+  {
+    src: 'Modules/AppUser/resources/vendor/images',
+    dest: 'vendor', //This destination is relative to public/build @see https://www.npmjs.com/package/vite-plugin-static-copy
+    rename: 'img'
+  },
+  {
+    src: 'Modules/AppUser/resources/vendor/fonts',
+    dest: 'vendor'
+  },
+  {
+    src: 'Modules/AppUser/resources/vendor/js/tinymce',
+    dest: 'vendor/js'
+  },
+];
