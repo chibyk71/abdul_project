@@ -23,6 +23,7 @@ async function getConfig () {
 
   return defineConfig( {
     build: {
+      emptyOutDir:false,
       rollupOptions: {
         external: [ // Any url that begins from these absolute paths should be considered external urls and will be resolved at runtime
           /^\/build\/vendor/,
