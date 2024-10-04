@@ -70,7 +70,7 @@ return [
    |
    */
 
-  'timezone' => 'UTC',
+  'timezone' => env('APP_TIMEZONE', 'UTC'),
 
   /*
    |--------------------------------------------------------------------------
@@ -83,7 +83,7 @@ return [
    |
    */
 
-  'locale' => 'en',
+  'locale' => env('APP_LOCALE', 'en'),
 
   /*
    |--------------------------------------------------------------------------
@@ -96,7 +96,7 @@ return [
    |
    */
 
-  'fallback_locale' => 'en',
+  'fallback_locale' => env('APP_FALLBACK_LOCALE'),
 
   /*
    |--------------------------------------------------------------------------
@@ -109,7 +109,7 @@ return [
    |
    */
 
-  'faker_locale' => 'en_US',
+  'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
   /*
    |--------------------------------------------------------------------------
@@ -122,9 +122,11 @@ return [
    |
    */
 
-  'key' => env('APP_KEY'),
-
   'cipher' => 'AES-256-CBC',
+  'key' => env('APP_KEY'),
+  'previous_keys' => [
+    ...array_filter(explode(',', env('APP_PREVIOUS_KEYS', ''))),
+  ],
 
   /*
    |--------------------------------------------------------------------------
@@ -135,13 +137,13 @@ return [
    | manage Laravel's "maintenance mode" status. The "cache" driver will
    | allow maintenance mode to be controlled across multiple machines.
    |
-   | Supported drivers: "file", "cache"
+   | Supported drivers: "file", "cache", "database
    |
    */
 
   'maintenance' => [
-    'driver' => 'file',
-    // 'store' => 'redis',
+    'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
+    'store' => env('APP_MAINTENANCE_STORE', 'database'),
   ],
 
   /*
