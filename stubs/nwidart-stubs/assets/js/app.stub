@@ -1,3 +1,0 @@
-import '@$LOWER_NAME$-assets/sass/app.scss'
-
-alert('Hello from $STUDLY_NAME$ module');
