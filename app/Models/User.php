@@ -3,7 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\ResetPassword;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -20,6 +23,7 @@ class User extends Authenticatable
 		'name',
 		'email',
 		'password',
+		'role'
 	];
 
 	/**
@@ -43,5 +47,32 @@ class User extends Authenticatable
 			'email_verified_at' => 'datetime',
 			'password' => 'hashed',
 		];
+	}
+
+
+	/**
+	 * Send the password reset notification.
+	 *
+	 * @param  string  $token
+	 */
+	public function sendPasswordResetNotification($token): void
+	{
+		$this->notify(new ResetPassword($token));
+	}
+
+	/**
+	 * Send the email verification notification.
+	 */
+	public function sendEmailVerificationNotification(): void
+	{
+		$this->notify(new VerifyEmail());
+	}
+
+	public function isAdmin() {
+		return $this->role == 'Admin';
+	}
+
+	public function student() {
+		return $this->hasOne(Student::class,);
 	}
 }

@@ -3,6 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Course;
+use App\Models\Department;
+use App\Models\Exam;
+use App\Models\Question;
+use App\Models\Student;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,13 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        \App\Models\User::factory()->create([
-            'name' => 'Administrator',
-            'email' => 'admin@example.com',
-        ]);
-
-        \App\Models\Post::factory(100)->create();
+        Department::factory()->create();
+        Student::factory(20)->create();
+        Course::factory(30)->create();
+        Exam::factory(40)->create();
+        Question::factory(500)->create();
     }
 }
